@@ -19,7 +19,45 @@ def months_alive(age):
 
 volume = cylinder_volume(10, 3)
 
+def get_rating_from_five_scores(score1, score2, score3, score4, score5):
+	score1 = int(score1)
+	score2 = int(score2)
+	score3 = int(score3)
+	score4 = int(score4)
+	score5 = int(score5)
+
+	required_total_score = remove_outliers(score1, score2, score3, score4, score5)
+	average_score = required_total_score / 3
+
+	return get_rating_from_avg_score(average_score)
+
+def remove_outliers(score1, score2, score3, score4, score5):
+	total_score = score1 + score2 + score3 + score4 + score5
+	total_score_no_outlier = total_score - min(score1, score2, score3, score4, score5) - max(score1, score2, score3, score4, score5)
+	return total_score_no_outlier
+
+def get_rating_from_avg_score(average_score):
+	if 0 <= average_score < 1:
+		return "Terrible"
+	elif 1 <= average_score < 2:
+		return "Bad"
+	elif 2 <= average_score < 3:
+		return "OK"
+	elif 3 <= average_score < 4:
+		return "Good"
+	elif 4 <= average_score <= 5:
+		return "Excellent"
+	else:
+		return "Rating not recognized"
+
+score1 = 0
+score2 = 1
+score3 = 1
+score4 = 1
+score5 = 5
+
 print(volume)
 print(days_to_weeks(10))
 print(months_to_years(32))
 print("Approx {} months!".format(months_alive(24)))
+print("Rating of these scores({}, {}, {}, {}, {}) is: {}".format(score1, score2, score3, score4, score5, get_rating_from_five_scores(score1, score2, score3, score4, score5)))
