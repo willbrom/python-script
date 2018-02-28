@@ -61,3 +61,11 @@ print(days_to_weeks(10))
 print(months_to_years(32))
 print("Approx {} months!".format(months_alive(24)))
 print("Rating of these scores({}, {}, {}, {}, {}) is: {}".format(score1, score2, score3, score4, score5, get_rating_from_five_scores(score1, score2, score3, score4, score5)))
+
+name_list = ['john', 'mavrik', 'Legend']
+name_list_with_line_break = "-".join(name_list)
+
+print(name_list_with_line_break)
+
+for name in name_list:
+	print(name.title())
