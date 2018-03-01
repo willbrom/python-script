@@ -131,3 +131,68 @@ def check_answers_refactored(my_answers, answers):
         return "Unfortunately, you did not pass. You scored " + str(correct_count) + " out of " + str(len(answers)) + "."
 
 print(check_answers_refactored(['a', 'b', 'c', 'a', 'e', 'f', 'g'], ['a', 'b', 'c', 'd', 'e', 'f', 'g']))
+
+
+"""
+Removing duplicate
+"""
+def remove_duplicates(list_wtih_duplicates):
+    new_list = []
+    contains = False
+    for index in range(len(list_wtih_duplicates)):
+        for index_new_list in range(len(new_list)):
+            if new_list[index_new_list] == list_wtih_duplicates[index]:
+                contains = True
+                break
+        if not contains:
+            new_list.append(list_wtih_duplicates[index])
+        else:
+            contains = False
+    return new_list
+
+print(remove_duplicates(['john', 'lucy', 'anivia', 'john', 'james', 'harry']))
+
+
+"""
+Removing duplicate refactor
+"""
+def remove_duplicates_refactor(source):
+    target = []
+    for element in source:
+        if element not in target:
+            target.append(element)
+    return target
+
+print(remove_duplicates_refactor(['john', 'lucy', 'anivia', 'john', 'james', 'harry']))
+
+
+"""
+Removing duplicates using a set
+"""
+def remove_duplicates_with_set(source):
+    source_set = set(source)
+    return source_set
+
+print(remove_duplicates_with_set(['john', 'lucy', 'anivia', 'john', 'james', 'harry']))
+
+
+"""
+Nearest square with sets
+"""
+def all_squares_till_limit(limit):
+    square_set = set()
+    square_num = 0
+    while (square_num+1)**2 < limit:
+        square_set.add((square_num+1)**2)
+        square_num += 1
+    return square_set
+
+print(len(all_squares_till_limit(2000)))
+
+
+"""
+Dictionary
+"""
+population = {'Istanbul': 13.3, 'Karachi': 13.0}
+
+print(population['Mumbai'])
