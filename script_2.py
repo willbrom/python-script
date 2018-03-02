@@ -85,3 +85,15 @@ def total_takings_ref(monthly_takings):
         #all the elements in a list
         total = total + sum(monthly_takings[month])
     return total
+
+
+
+"""
+Tuple example
+"""
+def hours2days(hours):
+     days = hours//24
+     hour = hours%24
+     return days, hour
+
+print(hours2days(10000))
