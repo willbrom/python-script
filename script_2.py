@@ -122,9 +122,31 @@ print_list(["cats", "in", "space"])
 
 
 
-egg_count = 0
+"""
+Create list from txt file
 
-def buy_eggs():
-    egg_count += 12 # purchase a dozen eggs
+['Graham Chapman', 'Eric Idle', 'Terry Jones', 'Michael Palin', 'Terry Gilliam', 'John Cleese', 'Carol Cleveland', 'Ian Davidson',
+'John Hughman', 'The Fred Tomlinson Singers', 'Connie Booth', 'Bob Raymond', 'Lyn Ashley', 'Rita Davies', 'Stanley Mason', 'David Ballantyne',
+'Donna Reading', 'Peter Brett', 'Maureen Flanagan', 'Katya Wyeth', 'Frank Lester', 'Neil Innes', 'Dick Vosburgh', 'Sandra Richards',
+'Julia Breck', 'Nicki Howorth', 'Jimmy Hill', 'Barry Cryer', 'Jeannette Wild', 'Marjorie Wilde', 'Marie Anderson', 'Caron Gardner',
+'Nosher Powell', 'Carolae Donoghue', 'Vincent Wong', 'Helena Clayton', 'Nigel Jones', 'Roy Gunson', 'Daphne Davey', 'Stenson Falke',
+'Alexander Curry', 'Frank Williams', 'Ralph Wood', 'Rosalind Bailey', 'Marion Mould', 'Sheila Sands', 'Richard Baker', 'Douglas Adams',
+'Ewa Aulin', 'Reginald Bosanquet', 'Barbara Lindley', 'Roy Brent', 'Jonas Card', 'Tony Christopher', 'Beulah Hughes', 'Peter Kodak', 'Lulu',
+'Jay Neill', 'Graham Skidmore', 'Ringo Starr', 'Fred Tomlinson', 'David Hamilton', 'Suzy Mandel', 'Peter Woods']
+"""
+def create_cast_list(filename):
+    cast_list = []
+    #use with to open the file filename
+    #use the for loop syntax to process each line
+    #and add the actor name to cast_list
+    with open(filename) as f:
+        for line in f:
+            cast_list.append(line.strip())
 
-buy_eggs()  
+    for index in range(len(cast_list)):
+        cast = cast_list[index].split(',')
+        cast_list[index] = cast[0]
+
+    return cast_list
+
+print(create_cast_list('txt files/flying_circus_cast.txt'))
